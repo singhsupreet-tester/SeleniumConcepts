@@ -150,6 +150,7 @@ public class BrowserUtil {
 			{
 				driver.quit();
 				System.out.println("Quit the Browser....");
+				System.out.println();
 			}
 		}
 		
