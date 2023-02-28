@@ -1,6 +1,10 @@
 package tests;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
 import utils.BrowserUtil;
+import utils.ElementUtil;
 
 public class checkTest {
 
@@ -9,12 +13,13 @@ public class checkTest {
 		String browser = "chrome";
 		
 		BrowserUtil brUtil = new BrowserUtil();
-		brUtil.launchBrowser(browser);
+		WebDriver driver = brUtil.launchBrowser(browser);
 		
-		brUtil.launchUrl("https://www.amazon.com");
+		brUtil.launchUrl("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 		
 		String title = brUtil.getPageTitle();
-		if(title.contains("Amazon"))
+		System.out.println("Title" + title);
+		if(title.contains("Account"))
 		{
 			System.out.println("Correct Title ---- PASS");
 			
@@ -25,10 +30,19 @@ public class checkTest {
 		}
 		
 		brUtil.getPageUrl();
+		brUtil.getPageTitle();
+		
+		
+		
+		By email = By.id("input-email");
+		By password = By.id("input-password");
+		
+		
+		ElementUtil eleUtil = new ElementUtil(driver);
+		eleUtil.doSendKeys(email, "sam29sept@gmail.com");
+		eleUtil.doSendKeys(password, "samhans");
+		
 		brUtil.closeBrowser();
-		
-		
-		
 	}
 
 }

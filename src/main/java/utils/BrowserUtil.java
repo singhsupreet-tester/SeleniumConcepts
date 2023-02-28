@@ -13,10 +13,10 @@ public class BrowserUtil {
 
 	
 		
-		WebDriver driver;
+		private WebDriver driver;
 		
 		
-		public void launchBrowser(String browser) throws Exception
+		public WebDriver launchBrowser(String browser) throws Exception
 		{
 			
 			
@@ -45,6 +45,8 @@ public class BrowserUtil {
 				throw new Exception("WRONGBROWSER");
 				
 			}
+			
+			return driver;
 		
 		}
 		
